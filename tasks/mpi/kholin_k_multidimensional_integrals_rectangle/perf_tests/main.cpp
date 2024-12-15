@@ -109,7 +109,7 @@ TEST(kholin_k_multidimensional_integrals_rectangle_mpi, test_task_run) {
   }
 }
 //
-//int main(int argc, char** argv) {
+// int main(int argc, char** argv) {
 //  boost::mpi::environment env(argc, argv);
 //  boost::mpi::communicator world;
 //  ::testing::InitGoogleTest(&argc, argv);

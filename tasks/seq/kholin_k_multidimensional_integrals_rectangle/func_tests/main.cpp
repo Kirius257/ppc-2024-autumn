@@ -136,7 +136,6 @@ TEST(kholin_k_multidimensional_integrals_rectangle_seq, test_post_processing) {
   testTaskSequential.pre_processing();
   testTaskSequential.run();
   ASSERT_EQ(testTaskSequential.post_processing(), true);
-  std::cout << "I = " << out_I[0] << std::endl;
 }
 
 TEST(kholin_k_multidimensional_integrals_rectangle_seq, single_integral_one_var) {
@@ -212,7 +211,6 @@ TEST(kholin_k_multidimensional_integrals_rectangle_seq, single_integral_two_var)
   testTaskSequential.post_processing();
 
   double ref_I = 54.4;
-  std::cout << "I = " << out_I[0] << std::endl;
   ASSERT_NEAR(ref_I, out_I[0], epsilon);
 }
 
@@ -251,7 +249,6 @@ TEST(kholin_k_multidimensional_integrals_rectangle_seq, double_integral_two_var)
   testTaskSequential.post_processing();
 
   double ref_I = 913.333;
-  std::cout << "I = " << out_I[0] << std::endl;
   ASSERT_NEAR(ref_I, out_I[0], epsilon);
 }
 
@@ -290,7 +287,6 @@ TEST(kholin_k_multidimensional_integrals_rectangle_seq, double_integral_one_var)
   testTaskSequential.post_processing();
 
   double ref_I = 6026.7;
-  std::cout << "I = " << out_I[0] << std::endl;
   ASSERT_NEAR(ref_I, out_I[0], epsilon);
 }
 
@@ -329,7 +325,6 @@ TEST(kholin_k_multidimensional_integrals_rectangle_seq, triple_integral_three_va
   testTaskSequential.post_processing();
 
   double ref_I = 952;
-  std::cout << "I = " << out_I[0] << std::endl;
   ASSERT_NEAR(ref_I, out_I[0], epsilon);
 }
 
@@ -368,7 +363,6 @@ TEST(kholin_k_multidimensional_integrals_rectangle_seq, triple_integral_two_var)
   testTaskSequential.post_processing();
 
   double ref_I = 9450;
-  std::cout << "I = " << out_I[0] << std::endl;
   ASSERT_NEAR(ref_I, out_I[0], epsilon);
 }
 
@@ -407,7 +401,6 @@ TEST(kholin_k_multidimensional_integrals_rectangle_seq, triple_integral_one_var)
   testTaskSequential.post_processing();
 
   double ref_I = 900;
-  std::cout << "I = " << out_I[0] << std::endl;
   ASSERT_NEAR(ref_I, out_I[0], epsilon);
 }
 

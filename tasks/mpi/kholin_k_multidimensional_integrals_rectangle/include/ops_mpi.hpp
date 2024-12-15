@@ -54,7 +54,8 @@ class TestMPITaskSequential : public ppc::core::Task {
 };
 
 class TestMPITaskParallel : public ppc::core::Task {
- MPI_Datatype get_mpi_type();
+  MPI_Datatype get_mpi_type();
+
  public:
   explicit TestMPITaskParallel(std::shared_ptr<ppc::core::TaskData> taskData_, Function f_)
       : Task(std::move(taskData_)), f(f_) {}

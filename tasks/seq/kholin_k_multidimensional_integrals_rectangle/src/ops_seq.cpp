@@ -40,10 +40,10 @@ double kholin_k_multidimensional_integrals_rectangle_seq::TestTaskSequential::ru
   do {
     n *= 2;
     I_2n = integrate_with_rectangle_method(f_, f_values_, l_limits, u_limits, dim_, n);
-    delta = std::abs(I_2n - I_n);  // ќценка погрешности
+    delta = std::abs(I_2n - I_n);
     I_n = I_2n;
 
-    std::cout << "n: " << n << ", I: " << I_2n << ", delta : " << delta << std::endl;
+    //std::cout << "n: " << n << ", I: " << I_2n << ", delta : " << delta << std::endl;
 
   } while ((1.0 / 3) * delta >= epsilon_);
 
