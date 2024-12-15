@@ -216,7 +216,7 @@ TEST(kholin_k_multidimensional_integrals_rectangle_seq, single_integral_two_var)
   testTaskSequential.post_processing();
 
   double ref_I = 54.4;
-  ASSERT_NEAR(ref_I, out_I[0], epsilon); 
+  ASSERT_NEAR(ref_I, out_I[0], epsilon);
   delete f_object;
 }
 
