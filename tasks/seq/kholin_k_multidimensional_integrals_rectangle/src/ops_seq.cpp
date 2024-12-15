@@ -43,7 +43,7 @@ double kholin_k_multidimensional_integrals_rectangle_seq::TestTaskSequential::ru
     delta = std::abs(I_2n - I_n);
     I_n = I_2n;
 
-    //std::cout << "n: " << n << ", I: " << I_2n << ", delta : " << delta << std::endl;
+    // std::cout << "n: " << n << ", I: " << I_2n << ", delta : " << delta << std::endl;
 
   } while ((1.0 / 3) * delta >= epsilon_);
 
