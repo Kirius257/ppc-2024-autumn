@@ -253,7 +253,7 @@ bool kholin_k_multidimensional_integrals_rectangle_mpi::TestMPITaskParallel::run
   }
   MPI_Bcast(lower_limits.data(), sz_lower_limits, MPI_DOUBLE, 0, MPI_COMM_WORLD);
   MPI_Bcast(upper_limits.data(), sz_upper_limits, MPI_DOUBLE, 0, MPI_COMM_WORLD);
-  MPI_Bcast(f_values.data(), static_cast<int>(sz_values), MPI_DOUBLE, 0, MPI_COMM_WORLD);//избавиться от привидения
+  MPI_Bcast(f_values.data(), static_cast<int>(sz_values), MPI_DOUBLE, 0, MPI_COMM_WORLD);//problem?
 
   // std::cout << "Im process " << ProcRank << std::endl;
   //  std::cout << "my f_values is ";
