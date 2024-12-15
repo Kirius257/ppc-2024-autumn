@@ -1,24 +1,27 @@
 #include <gtest/gtest.h>
 
+#include <vector>
+
 #include "core/perf/include/perf.hpp"
-#include "seq/durynichev_d_most_different_neighbor_elements/include/ops_seq.hpp"
+#include "seq/volochaev_s_vertical_ribbon_scheme_16/include/ops_seq.hpp"
 
-TEST(durynichev_d_most_different_neighbor_elements_seq, test_pipeline_run) {
+TEST(volochaev_s_vertical_ribbon_scheme_16_seq, test_pipeline_run) {
   // Create data
-  std::vector<int> in(10'000'000, 1);
-  std::vector<int> out{0, 0};
-  std::vector<int> want{1, 1};
-
+  std::vector<int> in_A(2000000, 0);
+  std::vector<int> in_B(10, 0);
+  std::vector<int> out(200000, 0);
+  std::vector<int> ans(200000, 0);
   // Create TaskData
-  auto taskDataSeq = std::make_shared<ppc::core::TaskData>();
-  taskDataSeq->inputs.emplace_back(reinterpret_cast<uint8_t *>(in.data()));
-  taskDataSeq->inputs_count.emplace_back(in.size());
+  std::shared_ptr<ppc::core::TaskData> taskDataSeq = std::make_shared<ppc::core::TaskData>();
+  taskDataSeq->inputs.emplace_back(reinterpret_cast<uint8_t *>(in_A.data()));
+  taskDataSeq->inputs_count.emplace_back(in_A.size());
+  taskDataSeq->inputs.emplace_back(reinterpret_cast<uint8_t *>(in_B.data()));
+  taskDataSeq->inputs_count.emplace_back(in_B.size());
   taskDataSeq->outputs.emplace_back(reinterpret_cast<uint8_t *>(out.data()));
   taskDataSeq->outputs_count.emplace_back(out.size());
 
   // Create Task
-  auto testTaskSequential =
-      std::make_shared<durynichev_d_most_different_neighbor_elements_seq::TestTaskSequential>(taskDataSeq);
+  auto testTaskSequential = std::make_shared<volochaev_s_vertical_ribbon_scheme_16_seq::Lab2_16>(taskDataSeq);
 
   // Create Perf attributes
   auto perfAttr = std::make_shared<ppc::core::PerfAttr>();
@@ -37,25 +40,26 @@ TEST(durynichev_d_most_different_neighbor_elements_seq, test_pipeline_run) {
   auto perfAnalyzer = std::make_shared<ppc::core::Perf>(testTaskSequential);
   perfAnalyzer->pipeline_run(perfAttr, perfResults);
   ppc::core::Perf::print_perf_statistic(perfResults);
-  ASSERT_EQ(want, out);
+  ASSERT_EQ(ans, out);
 }
 
-TEST(durynichev_d_most_different_neighbor_elements_seq, test_task_run) {
+TEST(volochaev_s_vertical_ribbon_scheme_16_seq, test_task_run) {
   // Create data
-  std::vector<int> in(10'000'000, 1);
-  std::vector<int> out{0, 0};
-  std::vector<int> want{1, 1};
-
+  std::vector<int> in_A(2000000, 0);
+  std::vector<int> in_B(10, 0);
+  std::vector<int> out(200000, 0);
+  std::vector<int> ans(200000, 0);
   // Create TaskData
-  auto taskDataSeq = std::make_shared<ppc::core::TaskData>();
-  taskDataSeq->inputs.emplace_back(reinterpret_cast<uint8_t *>(in.data()));
-  taskDataSeq->inputs_count.emplace_back(in.size());
+  std::shared_ptr<ppc::core::TaskData> taskDataSeq = std::make_shared<ppc::core::TaskData>();
+  taskDataSeq->inputs.emplace_back(reinterpret_cast<uint8_t *>(in_A.data()));
+  taskDataSeq->inputs_count.emplace_back(in_A.size());
+  taskDataSeq->inputs.emplace_back(reinterpret_cast<uint8_t *>(in_B.data()));
+  taskDataSeq->inputs_count.emplace_back(in_B.size());
   taskDataSeq->outputs.emplace_back(reinterpret_cast<uint8_t *>(out.data()));
   taskDataSeq->outputs_count.emplace_back(out.size());
 
   // Create Task
-  auto testTaskSequential =
-      std::make_shared<durynichev_d_most_different_neighbor_elements_seq::TestTaskSequential>(taskDataSeq);
+  auto testTaskSequential = std::make_shared<volochaev_s_vertical_ribbon_scheme_16_seq::Lab2_16>(taskDataSeq);
 
   // Create Perf attributes
   auto perfAttr = std::make_shared<ppc::core::PerfAttr>();
@@ -72,7 +76,7 @@ TEST(durynichev_d_most_different_neighbor_elements_seq, test_task_run) {
 
   // Create Perf analyzer
   auto perfAnalyzer = std::make_shared<ppc::core::Perf>(testTaskSequential);
-  perfAnalyzer->task_run(perfAttr, perfResults);
+  perfAnalyzer->pipeline_run(perfAttr, perfResults);
   ppc::core::Perf::print_perf_statistic(perfResults);
-  ASSERT_EQ(want, out);
+  ASSERT_EQ(ans, out);
 }

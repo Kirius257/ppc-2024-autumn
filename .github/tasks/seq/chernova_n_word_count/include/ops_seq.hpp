@@ -1,25 +1,25 @@
 #pragma once
 
-#include <string>
+#include <memory>
 #include <vector>
 
 #include "core/task/include/task.hpp"
 
-namespace chernova_n_word_count_seq {
-
-std::vector<char> clean_string(const std::vector<char>& input);
+namespace shkurinskaya_e_gauss_jordan_seq {
 
 class TestTaskSequential : public ppc::core::Task {
  public:
   explicit TestTaskSequential(std::shared_ptr<ppc::core::TaskData> taskData_) : Task(std::move(taskData_)) {}
+
   bool pre_processing() override;
   bool validation() override;
   bool run() override;
   bool post_processing() override;
 
  private:
-  std::vector<char> input_;
-  int spaceCount;
+  int n = 0;
+  std::vector<double> matrix;
+  std::vector<double> solution;
 };
 
-}  // namespace chernova_n_word_count_seq
+}  // namespace shkurinskaya_e_gauss_jordan_seq

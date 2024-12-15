@@ -1,3 +1,4 @@
+// Copyright 2023 Nesterov Alexander
 #pragma once
 
 #include <gtest/gtest.h>
@@ -12,9 +13,7 @@
 
 #include "core/task/include/task.hpp"
 
-namespace chernova_n_word_count_mpi {
-
-std::vector<char> clean_string(const std::vector<char>& input);
+namespace kolodkin_g_image_contrast_mpi {
 
 class TestMPITaskSequential : public ppc::core::Task {
  public:
@@ -25,9 +24,10 @@ class TestMPITaskSequential : public ppc::core::Task {
   bool post_processing() override;
 
  private:
-  std::vector<char> input_;
-  std::string ops;
-  int spaceCount{};
+  std::vector<int> input_;
+  std::vector<int> palette_;
+  std::vector<int> output_;
+  int av_br = 0;
 };
 
 class TestMPITaskParallel : public ppc::core::Task {
@@ -39,12 +39,9 @@ class TestMPITaskParallel : public ppc::core::Task {
   bool post_processing() override;
 
  private:
-  std::vector<char> input_, local_input_;
-  int spaceCount{};
-  int localSpaceCount{};
-  int partSize{};
-  std::string ops;
+  std::vector<int> input_;
+  std::vector<int> output_;
   boost::mpi::communicator world;
 };
 
-}  // namespace chernova_n_word_count_mpi
+}  // namespace kolodkin_g_image_contrast_mpi
