@@ -707,14 +707,14 @@ TEST(kholin_k_multidimensional_integrals_rectangle_mpi, triple_integral_one_var)
   ASSERT_NEAR(out_I[0], I, epsilon);
   ASSERT_NEAR(out_I[0], ref_I[0], epsilon);
 }
-
-int main(int argc, char **argv) {
-  boost::mpi::environment env(argc, argv);
-  boost::mpi::communicator world;
-  ::testing::InitGoogleTest(&argc, argv);
-  ::testing::TestEventListeners &listeners = ::testing::UnitTest::GetInstance()->listeners();
-  if (world.rank() != 0) {
-    delete listeners.Release(listeners.default_result_printer());
-  }
-  return RUN_ALL_TESTS();
-}
+//
+//int main(int argc, char **argv) {
+//  boost::mpi::environment env(argc, argv);
+//  boost::mpi::communicator world;
+//  ::testing::InitGoogleTest(&argc, argv);
+//  ::testing::TestEventListeners &listeners = ::testing::UnitTest::GetInstance()->listeners();
+//  if (world.rank() != 0) {
+//    delete listeners.Release(listeners.default_result_printer());
+//  }
+//  return RUN_ALL_TESTS();
+//}
