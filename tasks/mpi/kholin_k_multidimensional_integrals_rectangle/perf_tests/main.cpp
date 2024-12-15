@@ -55,6 +55,7 @@ TEST(kholin_k_multidimensional_integrals_rectangle_mpi, test_pipeline_run) {
   if (world.rank() == 0) {
     ppc::core::Perf::print_perf_statistic(perfResults);
   }
+  delete f_object;
 }
 
 TEST(kholin_k_multidimensional_integrals_rectangle_mpi, test_task_run) {
@@ -107,6 +108,7 @@ TEST(kholin_k_multidimensional_integrals_rectangle_mpi, test_task_run) {
   if (world.rank() == 0) {
     ppc::core::Perf::print_perf_statistic(perfResults);
   }
+  delete f_object;
 }
 //////
 // int main(int argc, char** argv) {

@@ -53,6 +53,7 @@ TEST(kholin_k_multidimensional_integrals_rectangle_seq, test_pipeline_run) {
   auto perfAnalyzer = std::make_shared<ppc::core::Perf>(testTaskSequential);
   perfAnalyzer->pipeline_run(perfAttr, perfResults);
   ppc::core::Perf::print_perf_statistic(perfResults);
+  delete f_object;
 }
 
 TEST(kholin_k_multidimensional_integrals_rectangle_seq, test_task_run) {
@@ -103,6 +104,7 @@ TEST(kholin_k_multidimensional_integrals_rectangle_seq, test_task_run) {
   auto perfAnalyzer = std::make_shared<ppc::core::Perf>(testTaskSequential);
   perfAnalyzer->pipeline_run(perfAttr, perfResults);
   ppc::core::Perf::print_perf_statistic(perfResults);
+  delete f_object;
 }
 
 // int main(int argc, char **argv) {
