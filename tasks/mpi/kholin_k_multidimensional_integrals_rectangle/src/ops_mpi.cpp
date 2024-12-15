@@ -284,7 +284,7 @@ bool kholin_k_multidimensional_integrals_rectangle_mpi::TestMPITaskParallel::run
 bool kholin_k_multidimensional_integrals_rectangle_mpi::TestMPITaskParallel::post_processing() {
   internal_order_test();
   reinterpret_cast<double*>(taskData->outputs[0])[0] = I_2n;
-  return true;
+  return true;//
 }
 
 kholin_k_multidimensional_integrals_rectangle_mpi::TestMPITaskParallel::~TestMPITaskParallel() { MPI_Type_free(&sz_t); }
