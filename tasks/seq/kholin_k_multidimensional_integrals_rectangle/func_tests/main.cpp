@@ -68,6 +68,7 @@ TEST(kholin_k_multidimensional_integrals_rectangle_seq, test_pre_processing) {
   kholin_k_multidimensional_integrals_rectangle_seq::TestTaskSequential testTaskSequential(taskDataSeq);
   testTaskSequential.validation();
   ASSERT_EQ(testTaskSequential.pre_processing(), true);
+  delete f_object;
 }
 
 TEST(kholin_k_multidimensional_integrals_rectangle_seq, test_run) {
