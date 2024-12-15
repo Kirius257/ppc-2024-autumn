@@ -61,6 +61,7 @@ TEST(kholin_k_multidimensional_integrals_rectangle_mpi, test_validation) {
     kholin_k_multidimensional_integrals_rectangle_mpi::TestMPITaskSequential testMpiTaskSequential(taskDataSeq, op);
     ASSERT_EQ(testMpiTaskSequential.validation(), true);
   }
+  delete f_object;
 }
 
 TEST(kholin_k_multidimensional_integrals_rectangle_mpi, test_pre_processing) {
@@ -120,6 +121,7 @@ TEST(kholin_k_multidimensional_integrals_rectangle_mpi, test_pre_processing) {
     testMpiTaskSequential.validation();
     ASSERT_EQ(testMpiTaskSequential.pre_processing(), true);
   }
+  delete f_object;
 }
 
 TEST(kholin_k_multidimensional_integrals_rectangle_mpi, test_run) {
@@ -181,6 +183,7 @@ TEST(kholin_k_multidimensional_integrals_rectangle_mpi, test_run) {
     testMpiTaskSequential.pre_processing();
     ASSERT_EQ(testMpiTaskSequential.run(), true);
   }
+  delete f_object;
 }
 
 TEST(kholin_k_multidimensional_integrals_rectangle_mpi, test_post_processing) {
@@ -244,6 +247,7 @@ TEST(kholin_k_multidimensional_integrals_rectangle_mpi, test_post_processing) {
     testMpiTaskSequential.run();
     ASSERT_EQ(testMpiTaskSequential.post_processing(), true);
   }
+  delete f_object;
 }
 
 TEST(kholin_k_multidimensional_integrals_rectangle_mpi, single_integral_one_var) {
@@ -310,6 +314,7 @@ TEST(kholin_k_multidimensional_integrals_rectangle_mpi, single_integral_one_var)
   double I = 0.46;
   ASSERT_NEAR(out_I[0], I, epsilon);
   ASSERT_NEAR(out_I[0], ref_I[0], epsilon);
+  delete f_object;
 }
 
 TEST(kholin_k_multidimensional_integrals_rectangle_mpi, single_integral_two_var) {
@@ -376,6 +381,7 @@ TEST(kholin_k_multidimensional_integrals_rectangle_mpi, single_integral_two_var)
   double I = 54.4;
   ASSERT_NEAR(out_I[0], I, epsilon);
   ASSERT_NEAR(out_I[0], ref_I[0], epsilon);
+  delete f_object;
 }
 
 TEST(kholin_k_multidimensional_integrals_rectangle_mpi, double_integral_two_var) {
@@ -442,6 +448,7 @@ TEST(kholin_k_multidimensional_integrals_rectangle_mpi, double_integral_two_var)
   double I = 913.333;
   ASSERT_NEAR(out_I[0], I, epsilon);
   ASSERT_NEAR(out_I[0], ref_I[0], epsilon);
+  delete f_object;
 }
 
 TEST(kholin_k_multidimensional_integrals_rectangle_mpi, double_integral_one_var) {
@@ -508,6 +515,7 @@ TEST(kholin_k_multidimensional_integrals_rectangle_mpi, double_integral_one_var)
   double I = 6026.7;
   ASSERT_NEAR(out_I[0], I, epsilon);
   ASSERT_NEAR(out_I[0], ref_I[0], epsilon);
+  delete f_object;
 }
 
 TEST(kholin_k_multidimensional_integrals_rectangle_mpi, triple_integral_three_var) {
@@ -574,6 +582,7 @@ TEST(kholin_k_multidimensional_integrals_rectangle_mpi, triple_integral_three_va
   double I = 952;
   ASSERT_NEAR(out_I[0], I, epsilon);
   ASSERT_NEAR(out_I[0], ref_I[0], epsilon);
+  delete f_object;
 }
 
 TEST(kholin_k_multidimensional_integrals_rectangle_mpi, triple_integral_two_var) {
@@ -640,6 +649,7 @@ TEST(kholin_k_multidimensional_integrals_rectangle_mpi, triple_integral_two_var)
   double I = 9450;
   ASSERT_NEAR(out_I[0], I, epsilon);
   ASSERT_NEAR(out_I[0], ref_I[0], epsilon);
+  delete f_object;
 }
 
 TEST(kholin_k_multidimensional_integrals_rectangle_mpi, triple_integral_one_var) {
@@ -706,9 +716,10 @@ TEST(kholin_k_multidimensional_integrals_rectangle_mpi, triple_integral_one_var)
   double I = 900;
   ASSERT_NEAR(out_I[0], I, epsilon);
   ASSERT_NEAR(out_I[0], ref_I[0], epsilon);
+  delete f_object;
 }
 //
-//int main(int argc, char **argv) {
+// int main(int argc, char **argv) {
 //  boost::mpi::environment env(argc, argv);
 //  boost::mpi::communicator world;
 //  ::testing::InitGoogleTest(&argc, argv);
