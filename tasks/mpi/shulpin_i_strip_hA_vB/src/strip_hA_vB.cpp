@@ -25,14 +25,13 @@ void shulpin_strip_scheme_A_B::calculate_mpi(int rows_a, int cols_a, int cols_b,
 
   std::vector<int> sendcounts(ProcNum);
   std::vector<int> displs(ProcNum);
-<<<<<<< HEAD
+
   for (int i = 0; i < ProcNum; ++i) {
     sendcounts[i] = ((i < RemainingRows) ? (ProcPartRows + 1) : ProcPartRows) * cols_a;
     displs[i] = (i == 0) ? 0 : displs[i - 1] + sendcounts[i - 1];
   }
 
   boost::mpi::scatterv(world, A_mpi.data(), sendcounts, displs, bufA.data(), LocalRows * cols_a, 0);
-=======
 
   if (ProcRank == 0) {
     for (int i = 0; i < ProcNum; ++i) {
@@ -57,15 +56,13 @@ void shulpin_strip_scheme_A_B::calculate_mpi(int rows_a, int cols_a, int cols_b,
   }
 
   boost::mpi::wait_all(requests.begin(), requests.end());
->>>>>>> 6de691196d5227ba261d9d7ba21719c9b8c6e4a3
 
   if (ProcRank == 0) {
     bufB = std::move(B_mpi);
   }
 
-<<<<<<< HEAD
   boost::mpi::broadcast(world, bufB, 0);
-=======
+
   requests.clear();
   if (ProcRank == 0) {
     for (int i = 1; i < ProcNum; ++i) {
@@ -77,7 +74,6 @@ void shulpin_strip_scheme_A_B::calculate_mpi(int rows_a, int cols_a, int cols_b,
   }
 
   boost::mpi::wait_all(requests.begin(), requests.end());
->>>>>>> 6de691196d5227ba261d9d7ba21719c9b8c6e4a3
 
   std::fill(bufC.begin(), bufC.end(), 0);
 
@@ -90,7 +86,6 @@ void shulpin_strip_scheme_A_B::calculate_mpi(int rows_a, int cols_a, int cols_b,
     }
   }
 
-<<<<<<< HEAD
   displs[0] = 0;
   for (int i = 0; i < ProcNum; ++i) {
     sendcounts[i] = ((i < RemainingRows) ? (ProcPartRows + 1) : ProcPartRows) * cols_b;
@@ -103,7 +98,6 @@ void shulpin_strip_scheme_A_B::calculate_mpi(int rows_a, int cols_a, int cols_b,
     C_mpi.resize(rows_a * cols_b, 0);
   }
   boost::mpi::gatherv(world, bufC.data(), LocalRows * cols_b, C_mpi.data(), sendcounts, displs, 0);
-=======
   if (ProcRank == 0) {
     C_mpi.resize(rows_a * cols_b, 0);
     for (int i = 0; i < ProcNum; ++i) {
@@ -125,7 +119,6 @@ void shulpin_strip_scheme_A_B::calculate_mpi(int rows_a, int cols_a, int cols_b,
   }
 
   boost::mpi::wait_all(requests.begin(), requests.end());
->>>>>>> 6de691196d5227ba261d9d7ba21719c9b8c6e4a3
 }
 
 void shulpin_strip_scheme_A_B::calculate_seq(int rows_a, int cols_a, int cols_b, std::vector<int> A_seq,
