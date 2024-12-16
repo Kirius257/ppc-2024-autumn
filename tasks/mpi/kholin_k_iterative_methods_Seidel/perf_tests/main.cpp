@@ -71,7 +71,11 @@ TEST(kholin_k_iterative_methods_Seidel_mpi, test_task_run) {
   std::vector<float> out;
   std::vector<float> X0;
   std::vector<float> B;
+<<<<<<< HEAD
   // Create TaskData
+=======
+  // Create TaskData//
+>>>>>>> 6de691196d5227ba261d9d7ba21719c9b8c6e4a3
   std::shared_ptr<ppc::core::TaskData> taskDataPar = std::make_shared<ppc::core::TaskData>();
   if (ProcRank == 0) {
     float p1 = -(100.0f * 100.0f * 10.0f);

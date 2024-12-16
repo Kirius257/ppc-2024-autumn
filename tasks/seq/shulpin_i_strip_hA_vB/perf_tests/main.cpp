@@ -8,7 +8,11 @@
 #include "seq/shulpin_i_strip_hA_vB/include/strip_hA_vB.hpp"
 
 TEST(shulpin_strip_scheme_A_B, pipeline_run) {
+<<<<<<< HEAD
   const int rows_a = 523;
+=======
+  const int rows_a = 401;
+>>>>>>> 6de691196d5227ba261d9d7ba21719c9b8c6e4a3
   const int cols_a = 512;
   const int rows_b = 512;
   const int cols_b = 1000;
@@ -63,7 +67,11 @@ TEST(shulpin_strip_scheme_A_B, pipeline_run) {
 }
 
 TEST(shulpin_strip_scheme_A_B, task_run) {
+<<<<<<< HEAD
   const int rows_a = 523;
+=======
+  const int rows_a = 401;
+>>>>>>> 6de691196d5227ba261d9d7ba21719c9b8c6e4a3
   const int cols_a = 512;
   const int rows_b = 512;
   const int cols_b = 1000;
